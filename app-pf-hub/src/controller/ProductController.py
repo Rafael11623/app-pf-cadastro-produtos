@@ -3,7 +3,7 @@ from src.models.ProdutoModel import ProductModel
 from src.services.ProdutoService import ProductService
 from src.models.respostasModel import Resposta
 
-app_router = APIRouter(prefix="/hub")
+app_router = APIRouter(prefix='/Produto')
 
 @app_router.get("/list", status_code=200)
 async def ListarTodos():

@@ -1,4 +1,4 @@
-from src.database.connection import Usuario, Patient
+from src.database.connection import Produtos
 from src.models.ProdutoModel import ProductModel
 from fastapi import HTTPException
 from datetime import datetime
@@ -6,7 +6,7 @@ from datetime import datetime
 class ProductService:
     async def ListarTodos() -> list:
         try:
-            return list(Patient.find())
+            return list(Produtos.find())
         except Exception as error:
             raise HTTPException(400, detail=error)
     
@@ -21,7 +21,7 @@ class ProductService:
                 "telefone": ProductModel.telefone,
                 "datacricao": datetime.now
             }
-            Usuario.insert_one(hub)
+            Produtos.insert_one(hub)
         except Exception as error:
             raise HTTPException(400, detail=error)
             
